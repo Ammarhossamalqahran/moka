@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>إلى حبيبتي ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at top,#5b0b29 0,#19030d 45%,#080107 100%);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.wrap{
+    position:relative;
+    z-index:1;
+    max-width:850px;
+    margin:auto;
+    padding:20px;
+}
+
+.screen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 10px;
+}
+
+.card{
+    width:100%;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(12px);
+    border-radius:30px;
+    padding:38px 24px;
+    box-shadow:0 20px 70px rgba(0,0,0,.45);
+}
+
+.kicker{
+    color:#ffb6ca;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+h1{
+    font-size:clamp(35px,9vw,70px);
+    margin:15px 0 8px;
+}
+
+h2{
+    font-size:clamp(25px,6vw,42px);
+    margin:10px 0;
+    color:#ffd1dc;
+}
+
+p{
+    line-height:2;
+    font-size:17px;
+}
+
+button{
+    border:0;
+    border-radius:999px;
+    padding:15px 28px;
+    margin-top:18px;
+    color:#fff;
+    background:linear-gradient(135deg,#ff3f78,#b30e46);
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(255,50,110,.25);
+}
+
+#main{
+    display:none;
+}
+
+.datebox{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.time{
+    min-width:82px;
+    padding:13px 8px;
+    border-radius:18px;
+    background:rgba(255,255,255,.09);
+}
+
+.time b{
+    display:block;
+    font-size:27px;
+}
+
+.time span{
+    font-size:12px;
+    color:#ffc2d1;
+}
+
+.message{
+    margin:30px 0;
+    padding:26px;
+    border-radius:25px;
+    background:rgba(255,255,255,.06);
+}
+
+.memory{
+    margin:35px 0;
+    background:rgba(0,0,0,.23);
+    padding:14px 14px 25px;
+    border-radius:27px;
+}
+
+.memory img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    border-radius:20px;
+    display:block;
+}
+
+.memory h3{
+    color:#ffb6ca;
+    font-size:23px;
+    margin:20px 8px 8px;
+}
+
+.memory p{
+    margin:0 8px;
+}
+
+.final{
+    text-align:center;
+    padding:55px 10px 80px;
+}
+
+.signature{
+    font-size:25px;
+    color:#ffb6ca;
+    margin-top:25px;
+}
+
+.fade{
+    animation:fade 1s ease both;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+@media(max-width:600px){
+
+    .memory img{
+        height:350px;
+    }
+
+    .card{
+        padding:30px 17px;
+    }
+
+    .time{
+        min-width:72px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div class="wrap">
+
+<!-- الشاشة الأولى -->
+
+<section class="screen" id="intro">
+
+<div class="card fade">
+
+<div class="kicker">
+23 أكتوبر 2026 • يوم مهم بالنسبالي ❤️
+</div>
+
+<h1>
+عندي حاجة صغيرة أقولها لك...
+</h1>
+
+<p>
+ومش عايز أقولها بسرعة،
+عايزك تقريها واحدة واحدة.
+</p>
+
+<button onclick="openLove()">
+افتحي الرسالة ❤️
+</button>
+
+</div>
+
+</section>
+
+
+<!-- المحتوى -->
+
+<main id="main">
+
+<section class="screen">
+
+<div class="card fade">
+
+<div class="kicker">
+قبل ما أقولك كل سنة وإنتي طيبة
+</div>
+
+<h2>
+عايز أقولك حاجة من قلبي
+</h2>
+
+<p>
+أنا عارف إن في كلام مني زعلك،
+وأنا آسف عليه بجد.
+مش هحاول أبرر ولا أقولك
+"أصل أنا كنت أقصد كذا".
+لو كلامي وجعك،
+يبقى أنا غلطان وكان المفروض
+أكون أهدى وأحن عليكي.
+</p>
+
+<p>
+وإنتي عارفة إني بحبك زي ما إنتي.
+بحب اهتمامك بيا،
+وبحب غيرتك عليا،
+وبحب إحساس إن في حد فارق معاه
+أنا ومشاعري.
+</p>
+
+<p>
+يمكن ساعات مش بعرف أتعامل مع ده صح،
+وده حاجة أنا لازم أتعلمها.
+</p>
+
+<p>
+<strong>
+أنا مش عايز أغيرك...
+أنا عايز أفهمك أكتر. ❤️
+</strong>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- العد التنازلي -->
+
+<section class="card fade">
+
+<div class="kicker">
+الوقت بيعدي...
+</div>
+
+<h2>
+لحد يومك الكبير 🎂
+</h2>
+
+<div class="datebox">
+
+<div class="time">
+<b id="days">0</b>
+<span>يوم</span>
+</div>
+
+<div class="time">
+<b id="hours">0</b>
+<span>ساعة</span>
+</div>
+
+<div class="time">
+<b id="mins">0</b>
+<span>دقيقة</span>
+</div>
+
+<div class="time">
+<b id="secs">0</b>
+<span>ثانية</span>
+</div>
+
+</div>
+
+<p>
+23 أكتوبر 2026 ❤️
+</p>
+
+</section>
+
+
+<!-- رسالة -->
+
+<section class="message fade">
+
+<h2>
+ولو بتسأليني أنا بحب فيكي إيه؟
+</h2>
+
+<p>
+بحب تفاصيلك اللي ممكن غيري يشوفها عادية.
+بحب طريقتك، كلامك، اهتمامك،
+وحتة الغيرة اللي بتبان منك لما تخافي عليا.
+</p>
+
+<p>
+وبحبك حتى في وقت زعلك،
+لأنك في الآخر إنتي...
+وإنتي الشخص اللي أنا اختارته.
+</p>
+
+</section>
+
+
+<!-- الصورة الأولى -->
+
+<section class="memory fade">
+
+<img src="photo1.jpg" alt="ذكرياتنا ❤️">
+
+<h3>
+الذكرى الأولى ❤️
+</h3>
+
+<p>
+كل مرة بشوف الصورة دي
+بفتكر قد إيه وجودك في حياتي عمل فرق.
+الصورة دي مش مجرد صورة عندي،
+دي لحظة أنا مبسوط إنها حصلت.
+</p>
+
+</section>
+
+
+<!-- الصورة الثانية -->
+
+<section class="memory fade">
+
+<img src="photo2.jpg" alt="أجمل لحظة ❤️">
+
+<h3>
+لحظة بحبها 💕
+</h3>
+
+<p>
+يمكن أنا مش دايمًا بعرف أقول اللي جوايا،
+بس صدقيني في حاجات كتير بحسها
+ومبعرفش أوصفها.
+</p>
+
+<p>
+وإنتي من أكتر الحاجات الحلوة
+اللي حصلتلي.
+</p>
+
+</section>
+
+
+<!-- الصورة الثالثة -->
+
+<section class="memory fade">
+
+<img src="photo3.jpg" alt="حبيبتي ❤️">
+
+<h3>
+وبالنسبة لغيرتك... 😌❤️
+</h3>
+
+<p>
+أنا بحب غيرتك عليا،
+والله بحبها.
+</p>
+
+<p>
+بحب إنك بتخافي عليا
+وبيفرق معاكي أنا مع مين وبعمل إيه.
+</p>
+
+<p>
+بس أنا كمان هحاول أكون أهدى
+وأفهمك أكتر،
+عشان غيرتك تفضل حاجة حلوة بينا
+مش سبب إن واحدة فينا تزعل.
+</p>
+
+</section>
+
+
+<!-- الصورة الرابعة -->
+
+<section class="memory fade">
+
+<img src="photo4.jpg" alt="حبيبتي في عيد ميلادها ❤️">
+
+<h3>
+نفسي السنة دي تبقى مختلفة 🎂
+</h3>
+
+<p>
+نفسي أكون سبب في ضحكتك
+أكتر من زعلك،
+ونفسي لما تفتكري السنة دي
+تفتكري حاجات حلوة.
+</p>
+
+<p>
+ومهما حصل بينا،
+أهم حاجة عندي إننا نعرف نتكلم
+ونرجع لبعض.
+</p>
+
+</section>
+
+
+<!-- النهاية -->
+
+<section class="final fade">
+
+<div class="card">
+
+<div class="kicker">
+23 • 10 • 2026
+</div>
+
+<h1>
+كل سنة وإنتي حبيبتي ❤️
+</h1>
+
+<p>
+عيد ميلاد سعيد لأجمل واحدة دخلت حياتي.
+أتمنى السنة الجديدة من عمرك
+تكون أهدى وأحلى،
+وتحققي فيها كل حاجة نفسك فيها.
+</p>
+
+<p>
+وأنا آسف مرة تانية
+على كل كلمة مني زعلتك.
+</p>
+
+<p>
+مش هقولك إني كامل،
+لأني مش كامل،
+بس هقولك إني بحبك
+وبحاول أكون أحسن عشانك.
+</p>
+
+<p>
+
+<strong>
+خليكي إنتي زي ما إنتي...
+بغيرتك، بدلعك، بعندك،
+وبكل تفاصيلك.
+أنا حبيتك كده. ❤️
+</strong>
+
+</p>
+
+<div class="signature">
+منّي ليكي... بكل قلبي ❤️
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script>
+
+/* فتح الرسالة */
+
+function openLove(){
+
+document.getElementById("intro").style.display="none";
+
+document.getElementById("main").style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* العد التنازلي */
+
+const target =
+new Date("2026-10-23T00:00:00+03:00").getTime();
+
+
+function update(){
+
+const now = Date.now();
+
+const diff = Math.max(0,target-now);
+
+
+const d =
+Math.floor(diff/86400000);
+
+const h =
+Math.floor(diff/3600000)%24;
+
+const m =
+Math.floor(diff/60000)%60;
+
+const s =
+Math.floor(diff/1000)%60;
+
+
+document.getElementById("days").textContent=d;
+
+document.getElementById("hours").textContent=h;
+
+document.getElementById("mins").textContent=m;
+
+document.getElementById("secs").textContent=s;
+
+}
+
+
+setInterval(update,1000);
+
+update();
+
+
+/* القلوب المتحركة */
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+
+function resize(){
+
+canvas.width=innerWidth;
+
+canvas.height=innerHeight;
+
+}
+
+resize();
+
+addEventListener("resize",resize);
+
+
+let hearts=[];
+
+
+for(let i=0;i<45;i++){
+
+hearts.push({
+
+x:Math.random()*innerWidth,
+
+y:Math.random()*innerHeight,
+
+s:Math.random()*18+7,
+
+v:Math.random()*.45+.15,
+
+a:Math.random()*.5+.2
+
+});
+
+}
+
+
+function draw(){
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+hearts.forEach(o=>{
+
+o.y-=o.v;
+
+if(o.y<-30)
+o.y=canvas.height+30;
+
+ctx.globalAlpha=o.a;
+
+ctx.font=o.s+"px Arial";
+
+ctx.fillText(
+"❤",
+o.x,
+o.y
+);
+
+});
+
+
+requestAnimationFrame(draw);
+
+}
+
+
+draw();
+
+</script>
+
+</body>
+</html>
